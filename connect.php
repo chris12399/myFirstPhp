@@ -11,7 +11,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die('連線失敗' . mysqli_connect_error());
 }
-echo '連線成功</br>';
+//echo '連線成功</br>';
 
 //選擇要撈取的資料， * 表示全部。
 $sql = 'SELECT * FROM member';
@@ -37,12 +37,9 @@ if (mysqli_num_rows($result) > 0) {
         // echo $row['Email'];
         $myarray[] = $row;
     }
-    //轉成 json 語法
-    echo json_encode($myarray);
-    print ("sucess to json");
-    // if(json_decode($myarray)){
-    //     print ("sucess to json");
-    // }
+    //轉成 json 語法    行41 42 要分段
+    $myarray = json_encode($myarray);
+    echo $myarray;
 
 } else {
     echo '沒有資料內容';

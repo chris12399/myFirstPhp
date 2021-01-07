@@ -54,11 +54,9 @@
             $.ajax({
                 type: "GET",
                 url: "connect.php",
-                dataType: "json",
+                dataType: "JSON",
                 success: show,
-                // error: function () {
-                //     alert("error!");
-                // }
+
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(XMLHttpRequest.status);
                     alert(XMLHttpRequest.readyState);
@@ -70,8 +68,7 @@
         function show(data) {
             console.log(data);
             for (i = 0; i < data.length; i++) {
-                str = '<tr><td>' + data[i].ID + "</td><td>" + data[i].Username + "</td><td>" + data[i].Created_at + "</td><td>" + data[i].Email + "</td></tr>";
-
+                str = '<tr><td>' + data[i].ID + '</td><td>' + data[i].Username + '</td><td>' + data[i].Created_at + '</td><td>' + data[i].Email + '</td></tr>';
                 $("#member_list").append(str);
             };
 
